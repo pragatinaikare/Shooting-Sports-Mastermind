@@ -1,6 +1,9 @@
 # Shooting-Sports-Mastermind
 
+Chatbot Link: 
+
 # Motivation
+
 As a rifle shooter, the world of shooting sports is close to my heart 💟. <br>
 
 While practicing, I often had to deal with the complicated rules and regulations of our sport. These rules cover aspects such as weapon weight, clothing thickness standards, maximum sling width, shoe sole flexibility, and many more, all of which are potential reasons for disqualification. Navigating through multiple handbooks and resources to find accurate information was not only time-consuming but also challenging. <br>
