@@ -14,7 +14,7 @@ The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to delive
 ## Data Sources
 The knowledge base is built using shooting-related PDFs collected from various online and offline sources. The PDF content includes, but is not limited to:
  <br>
-- Weapon setup guidelines (Rifle/Pistol)<br>
+- Weapon setup guidelines (Rifle/Pistol/Shotgun)<br>
 - Safety protocols <br>
 - Measurement rules <br>
 - Anti-doping Rules
