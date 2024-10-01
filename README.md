@@ -1,6 +1,6 @@
 # Shooting-Sports-Mastermind
 
-Chatbot Link: 
+[Access Chatbot Here](https://shooting-chatbot-73f9e9488409.herokuapp.com/)
 
 # Motivation
 
