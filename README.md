@@ -1,9 +1,5 @@
 # Shooting-Sports-Mastermind
 
-This project focuses on building a Retrieval-Augmented Generation (RAG) chatbot designed for the highly regulated and precise world of shooting sports. The chatbot assists shooters, juries, and other stakeholders by answering domain-specific questions related to rules and regulations governing weapon settings, safety, measurements, and more. 
-<br>
-The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to deliver accurate and fast responses based on a robust knowledge base.
-
 # Motivation
 As a rifle shooter, the world of shooting sports is close to my heart 💟. <br>
 
