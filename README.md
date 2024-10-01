@@ -4,12 +4,14 @@ This project focuses on building a Retrieval-Augmented Generation (RAG) chatbot 
 <br>
 The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to deliver accurate and fast responses based on a robust knowledge base.
 
-## Features
+## Tech Stack
 
-**Text Embeddings:** Uses gte-base embeddings for efficient document retrieval. <br>
-**Fast Query Handling:** Powered by gpt-4.o mini to generate prompt and contextually accurate responses. <br>
-**Seamless CI/CD Pipeline:** Fully automated deployment using GitHub Actions with hosting on Heroku. <br>
-<br>
+🔧 𝗧𝗲𝗰𝗵 𝗦𝘁𝗮𝗰𝗸:
+* 𝗣𝗿𝗼𝗺𝗽𝘁 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲𝘀: GPT-4.0 Mini
+* 𝗧𝗲𝘅𝘁 𝗘𝗺𝗯𝗲𝗱𝗱𝗶𝗻𝗴: GTE-base
+* 𝗩𝗲𝗰𝘁𝗼𝗿 𝗗𝗕: Pinecone
+* 𝗖𝗜/𝗖𝗗: GitHub Actions
+* 𝗗𝗲𝗽𝗹𝗼𝘆𝗺𝗲𝗻𝘁: Heroku
 
 ## Data Sources
 The knowledge base is built using shooting-related PDFs collected from various online and offline sources. The PDF content includes, but is not limited to:
