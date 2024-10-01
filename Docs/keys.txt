@@ -1,0 +1,4 @@
+{
+    "openai": "<add key here>" ,
+    "pinecone": "<add key here>",
+}

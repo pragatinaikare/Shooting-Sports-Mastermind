@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shooting Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- CSS styles -->
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #007BFF, #87CEEB);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .chat-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            height: 80%;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message,
+        .input_message {
+            background-color: #f1f1f1;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .user-message,
+        .bot-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background-color: #0078d7;
+            color: white;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .bot-message {
+            background-color: #2b2b2b;
+            color: white;
+            align-self: flex-start;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+
+        .bot-message ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .bot-message ul li {
+            list-style-type: disc;
+            margin-bottom: 5px;
+        }
+
+        .input-form {
+            width: calc(80% - 20px);
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+        }
+
+        .submit-btn i {
+            font-size: 18px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Loader to show thinking dots in the chat bubble */
+        .thinking-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #3498db;
+            border-radius: 50%;
+            animation: bounce 1.2s infinite ease-in-out;
+            margin: 0 3px;
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="intro-box">
+        <h1>Hi, I'm Shooting Guide</h1>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+        <!-- Chat messages will be displayed here -->
+    </div>
+
+    <form class="input-form" id="input-form">
+        <input type="text" id="user-input" name="message" placeholder="Ask me something about Shooting Rules...">
+        <button type="submit" class="submit-btn" id="enterBtn">
+            <i class="fas fa-paper-plane"></i> <!-- Font Awesome paper plane icon -->
+        </button>
+    </form>
+
+    <script>
+        const form = document.getElementById('input-form');
+        const chatContainer = document.getElementById('chat-container');
+
+        // Function to handle the response and render HTML with bullet points, bold text, and proper formatting
+        function formatResponse(responseText) {
+            // Replace markdown-like **bold** with <strong> HTML tag
+            responseText = responseText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+            // Convert bullet points (with -, *, or •) into HTML <ul> and <li> tags
+            const bulletPointPattern = /^(\*|•|-) /gm; // Detect lines starting with *, •, or -
+            const lines = responseText.split('\n');
+
+            let isList = false;
+            const container = document.createElement('div'); // Container to hold paragraphs and lists
+
+            lines.forEach(line => {
+                if (bulletPointPattern.test(line)) {
+                    if (!isList) {
+                        const ul = document.createElement('ul');
+                        container.appendChild(ul);
+                        isList = true;
+                    }
+                    const li = document.createElement('li');
+                    li.innerHTML = line.replace(bulletPointPattern, '').trim(); // Clean bullet symbol
+                    container.lastElementChild.appendChild(li); // Append to the last <ul>
+                } else {
+                    if (isList) isList = false;
+                    const p = document.createElement('p');
+                    p.innerHTML = line.trim() || '<br>'; // Add line breaks or paragraph text
+                    container.appendChild(p);
+                }
+            });
+
+            return container;
+        }
+
+        // Function to create the thinking dots loader inside the chat
+        function createThinkingLoader() {
+            const loaderDiv = document.createElement('div');
+            loaderDiv.classList.add('bot-message', 'thinking-loader');
+
+            const dot1 = document.createElement('div');
+            dot1.classList.add('dot');
+            const dot2 = document.createElement('div');
+            dot2.classList.add('dot');
+            const dot3 = document.createElement('div');
+            dot3.classList.add('dot');
+
+            loaderDiv.appendChild(dot1);
+            loaderDiv.appendChild(dot2);
+            loaderDiv.appendChild(dot3);
+
+            return loaderDiv;
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input').value.trim();
+            if (!userInput) return;
+
+            // Display user message
+            const userDiv = document.createElement('div');
+            userDiv.textContent = userInput;
+            userDiv.classList.add('user-message');
+            chatContainer.appendChild(userDiv);
+
+            // Create and display the thinking loader inside the chat
+            const thinkingLoader = createThinkingLoader();
+            chatContainer.appendChild(thinkingLoader);
+            chatContainer.scroll({ top: chatContainer.scrollHeight, behavior: 'smooth' });
+
+            try {
+                // Send user input to the server
+                const response = await fetch('/llmtrigger', {
+                    method: 'POST',
+                    body: new URLSearchParams({ message: userInput }),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                });
+
+                const data = await response.json();
+
+                // Remove the thinking loader when the response is received
+                chatContainer.removeChild(thinkingLoader);
+
+                // Display bot response with proper formatting
+                const botDiv = document.createElement('div');
+                botDiv.classList.add('bot-message');
+
+                // Format response with bullet points, bold text, and proper line breaks
+                const formattedResponse = formatResponse(data.message);
+                botDiv.appendChild(formattedResponse);
+                chatContainer.appendChild(botDiv);
+
+                document.getElementById('user-input').value = ''; // Clear input
+                chatContainer.scroll({ top: chatContainer.scrollHeight, behavior: 'smooth' }); // Auto scroll
+            } catch (error) {
+                console.error('Error:', error);
+
+                // Remove the thinking loader if there is an error
+                chatContainer.removeChild(thinkingLoader);
+
+                const errorDiv = document.createElement('div');
+                errorDiv.textContent = 'Sorry, there was an error. Please try again.';
+                errorDiv.classList.add('bot-message');
+                chatContainer.appendChild(errorDiv);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
