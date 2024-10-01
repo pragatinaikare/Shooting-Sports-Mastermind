@@ -8,9 +8,9 @@ While practicing, I often had to deal with the complicated rules and regulations
 Recognizing this need, I started working on a RAG-based chatbot a few weeks ago to streamline this process! I gathered comprehensive shooting-related handbooks, including those from the ISSF - International Shooting Sport Federation, and developed a chatbot to provide quick and accurate responses about shooting rules and regulations for both shooters and juries.<br>
 
 
-![ Screenshot](images/i1.webp, ref.webp)
+![ Screenshot](Images/i1.webp, ref.webp)
 
-![ Screenshot](images/i1.webp)
+![ Screenshot](Images/i1.webp)
 
 ## Tech Stack
 
