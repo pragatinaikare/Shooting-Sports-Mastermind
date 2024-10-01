@@ -4,6 +4,13 @@ This project focuses on building a Retrieval-Augmented Generation (RAG) chatbot 
 <br>
 The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to deliver accurate and fast responses based on a robust knowledge base.
 
+# Motivation
+As a rifle shooter, the world of shooting sports is close to my heart 💟. <br>
+
+While practicing, I often had to deal with the complicated rules and regulations of our sport. These rules cover aspects such as weapon weight, clothing thickness standards, maximum sling width, shoe sole flexibility, and many more, all of which are potential reasons for disqualification. Navigating through multiple handbooks and resources to find accurate information was not only time-consuming but also challenging. <br>
+
+Recognizing this need, I started working on a RAG-based chatbot a few weeks ago to streamline this process! I gathered comprehensive shooting-related handbooks, including those from the ISSF - International Shooting Sport Federation, and developed a chatbot to provide quick and accurate responses about shooting rules and regulations for both shooters and juries.<br>
+
 ## Tech Stack
 
 * 𝗣𝗿𝗼𝗺𝗽𝘁 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲𝘀: GPT-4.0 Mini
