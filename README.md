@@ -33,7 +33,7 @@ The knowledge base is built using shooting-related PDFs collected from various o
 
 ## Installation & Setup
 **1. Clone the Repository:** <br>
-     ``` 
+     ```bash
      git clone https://github.com/pragatinaikare/RAG_BASED_CHATBOT.git
      ```<br>
 
