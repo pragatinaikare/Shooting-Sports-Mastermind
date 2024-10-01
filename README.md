@@ -44,7 +44,8 @@ pip install -r requirements.txt
 ```
 
 **3. Set Up API Keys:** 
-You will need to create accounts with Pinecone and OpenAI to get your API keys. Add these keys in keys.txt file inside Data Folder
+You will need to create accounts with Pinecone and OpenAI to get your API keys. Add these keys in keys.txt file inside Docs Folder
+
 
 
 ## References
