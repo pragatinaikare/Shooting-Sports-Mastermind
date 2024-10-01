@@ -9,8 +9,8 @@ The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to delive
 **Text Embeddings:** Uses gte-base embeddings for efficient document retrieval. <br>
 **Fast Query Handling:** Powered by gpt-4.o mini to generate prompt and contextually accurate responses. <br>
 **Seamless CI/CD Pipeline:** Fully automated deployment using GitHub Actions with hosting on Heroku. <br>
+<br>
 
- <br>
 ## Data Sources
 The knowledge base is built using shooting-related PDFs collected from various online and offline sources. The PDF content includes, but is not limited to:
  <br>
@@ -38,7 +38,7 @@ You will need to create accounts with Pinecone and OpenAI to get your API keys. 
 
 
 ## References
-1] [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219)
-2] [Context Embeddings for Efficient Answer Generation in RAG](https://arxiv.org/abs/2407.09252)
-3] [RAGAS: Automated Evaluation of Retrieval-Augmented Generation](https://arxiv.org/abs/2309.15217)
+1] [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219)<br>
+2] [Context Embeddings for Efficient Answer Generation in RAG](https://arxiv.org/abs/2407.09252)<br>
+3] [RAGAS: Automated Evaluation of Retrieval-Augmented Generation](https://arxiv.org/abs/2309.15217)<br>
 
