@@ -6,7 +6,6 @@ The chatbot leverages LangChain, Pinecone Vector DB, and OpenAI models to delive
 
 ## Tech Stack
 
-🔧 𝗧𝗲𝗰𝗵 𝗦𝘁𝗮𝗰𝗸:
 * 𝗣𝗿𝗼𝗺𝗽𝘁 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲𝘀: GPT-4.0 Mini
 * 𝗧𝗲𝘅𝘁 𝗘𝗺𝗯𝗲𝗱𝗱𝗶𝗻𝗴: GTE-base
 * 𝗩𝗲𝗰𝘁𝗼𝗿 𝗗𝗕: Pinecone
